@@ -38,10 +38,10 @@ const CATEGORIES = [
 ];
 
 const PRODUCTS = [
-  { id: "demo-earbuds", name: "Demo Wireless Earbuds", image: "", price: "",
-    desc: "Demo listing. Replace with a real product you have personally checked.",
-    features: ["Sample feature one", "Sample feature two", "Sample feature three"],
-    category: "Electronics", url: "https://www.amazon.in/?tag=YOURTAG-21", featured: true, label: "Trending", demo: true },
+    { id: "oneplus-nord-buds-3r", name: "OnePlus Nord Buds 3r TWS Earbuds", image: "https://m.media-amazon.com/images/I/51nBTTG3hNL._SL1500_.jpg", price: "",
+    desc: "Wireless earbuds with long battery life, clear calling and low delay for gaming.",
+    features: ["Up to 54 hours total playback", "Clear calls with noise cancellation", "47ms low latency for gaming"],
+    category: "Electronics", url: "https://www.amazon.in/OnePlus-Playback-Translation-Dual-Device-Connectivity/dp/B0FMDL81GS?crid=5I7AOVRCQHHO&dib=eyJ2IjoiMSJ9.LLoH3WbgkQfyR9lvib6X_LNjQSgOVUuNgcFKM_NW21jllD7psAfHzt6texL8EAsqK9m0DD9ONay_f-Dc4tmV9m5NxX5tR9fVMYLyG6e-jX8AKrSD1l8tc2qLkJBgzM9ftB802_brcDwKW8mC2kC0bWH25yapgyFaehQ5V9J-1ePjTdtqHcD8f-6V8LU9NnWiqIJ5w3U7Dc_SJjNFB2ux2ANvsB3qrazzie2rbHMVbNU.Gs-el2iR5Js1VuRoo-KmrKJI1z5LF4FS_cDdWHWNOr0&dib_tag=se&keywords=wireless%2Bear%2Bbuds&qid=1794220595&sprefix=Wireless%2Bear%2Caps%2C1009&sr=8-4&th=1&linkCode=ll2&tag=gauravchauh0f-21&linkId=6f152834bcd0a6abb79918883188a8a1&ref_=as_li_ss_tl", featured: true, label: "", demo: false },
 
   { id: "demo-powerbank", name: "Demo Power Bank", image: "", price: "",
     desc: "Demo listing. Add the real product name and your own short description.",
