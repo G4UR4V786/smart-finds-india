@@ -9,7 +9,7 @@
 <meta property="og:description" content="Discover Smart Products. Shop Smarter.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0B5D4B">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B5D4B'/%3E%3Cpath d='M26 22h26l20 20-27 27-19-19z' fill='%23fff'/%3E%3Cpath d='M40 50l8 8 14-16' stroke='%23F5B82E' stroke-width='7' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230B5D4B'/%3E%3Cg transform='translate(20 20) scale(2.5)' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='20' r='1.4'/%3E%3Ccircle cx='18' cy='20' r='1.4'/%3E%3Cpath d='M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#F6F8F7;--card:#fff;--ink:#12201B;--mute:#52625C;--line:#DCE4E0;--brand:#0B5D4B;--brand2:#084437;--gold:#F5B82E;--r:14px}
@@ -64,12 +64,19 @@ footer{margin-top:48px;border-top:1px solid var(--line);background:var(--card);p
 footer nav a{padding:4px 10px;font-size:.88rem}
 .mini{font-size:.85rem;color:var(--mute);margin:0 0 8px}
 @media(prefers-reduced-motion:no-preference){.card{transition:transform .15s}.card:hover{transform:translateY(-2px)}}
+
+/* minimal overrides */
+.hero h1{font-weight:800;max-width:14ch}
+.hero p{color:var(--mute)}
+.hero .btn{background:var(--brand);color:#fff}
+.hero .btn.alt{background:transparent;color:var(--brand);border:2px solid var(--brand)}
+.logo{font-size:1.1rem}
 </style>
 </head>
 <body>
 <a href="#main" style="position:absolute;left:-999px">Skip to content</a>
 <header><div class="wrap bar">
-  <a class="logo" href="#/" id="logo" aria-label="Smart Finds India home"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0B5D4B"/><path d="M11 9h11.5L31 17.5 19.5 29 11 20.5z" fill="#fff"/><circle cx="16.2" cy="14.2" r="2.3" fill="#0B5D4B"/><path d="M17 20.5l3 3 6-7" fill="none" stroke="#F5B82E" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Smart Finds<small>Curated picks for India</small></span></a>
+  <a class="logo" href="#/" id="logo" aria-label="Smart Finds India home"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#0B5D4B"/><g transform="translate(8 8)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h3l2.7 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6"/></g></svg><span>Smart Finds India</span></a>
   <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="nav">Menu</button>
   <nav id="nav" aria-label="Main"></nav>
 </div></header>
@@ -94,7 +101,7 @@ function card(p){
   const thumb=p.image?`<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy" onerror="this.remove()">`:(ICON[p.category]||"🛍️");
   const feats=(p.features||[]).slice(0,3).map(f=>`<li>${esc(f)}</li>`).join("");
   return `<article class="card">
-    <div class="thumb" style="background:${colorFor(p.category)}">${thumb}
+    <div class="thumb">${thumb}
       ${p.label?`<span class="tag">${esc(p.label)}</span>`:""}${p.demo?`<span class="tag demo">DEMO</span>`:""}</div>
     <div class="body"><span class="cat">${esc(p.category)}</span>
       <h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
@@ -111,8 +118,7 @@ home(){
   const f=PRODUCTS.filter(p=>p.featured),t=PRODUCTS.filter(p=>p.label==="Trending"),n=PRODUCTS.filter(p=>p.label==="New");
   return `<section class="hero"><h1>${esc(SITE.tagline)}</h1>
     <p>Hand-picked products from Amazon India, sorted by category so you can find useful things faster.</p>
-    <a class="btn" href="#/products">Browse all products</a> <a class="btn alt" href="#/categories">See categories</a>
-    <div class="trust"><span>Hand-picked products</span><span>No fake reviews</span><span>Buy safely on Amazon.in</span></div></section>
+    <a class="btn" href="#/products">Browse all products</a> <a class="btn alt" href="#/categories">See categories</a></section>
     ${f.length?`<h2>Featured products</h2>${grid(f)}`:""}
     ${t.length?`<h2>Trending finds</h2>${grid(t)}`:""}
     ${n.length?`<h2>Latest additions</h2>${grid(n)}`:""}
